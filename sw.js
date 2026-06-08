@@ -1,5 +1,5 @@
 // Service Worker - 완전 오프라인 캐싱
-const CACHE_NAME = 'l3-master-v1';
+const CACHE_NAME = 'l3-master-v1.1';
 const CACHE_FILES = [
   './',
   './index.html',
