@@ -2733,34 +2733,22 @@ function L3Master() {
                         {cq.q.replace(/^\[.*?\]\s*/,"")}
                       </div>
                       <div style={{display:"flex",flexDirection:"column",gap:8}}>
-  {(cq.opts||[]).map((opt,i) => {
-    const ok = i+1===cq.ans;
-    const picked = qAns===i;
-    let bg="#1a1a2e",bc="#2a2a3e",col="#ccc";
-    if(qAns!==null){
-      if(ok){bg="#4ECDC422";bc="#4ECDC4";col="#4ECDC4";}
-      else if(picked){bg="#f5522222";bc="#f55";col="#f55";}
-    }
-    return (
-      <div key={i} style={{...S.opt,background:bg,borderColor:bc,color:col,
-          cursor:qAns===null?"pointer":"default",
-          borderWidth:picked?2:1,
-          boxShadow:picked?`0 0 0 1px ${bc}`:"none"}}
-        onClick={()=>handleQA(i)}>
-        <span style={{...S.optN,background:bc+"44",color:bc}}>{i+1}</span>
-        <span style={{flex:1}}>{opt}</span>
-        {qAns!==null&&picked&&(
-          <span style={{fontSize:10,fontWeight:800,padding:"2px 7px",borderRadius:8,
-            background:ok?"#4ECDC4":"#f55",color:"#fff",marginRight:4}}>내 선택</span>
-        )}
-        {qAns!==null&&ok&&<span style={{color:"#4ECDC4",fontWeight:900,fontSize:16}}>✓</span>}
-      </div>
-    );
-  })}
-</div>
-
-                     
-                     
+                        {(cq.opts||[]).map((opt,i) => {
+                          const ok = i+1===cq.ans;
+                          let bg="#1a1a2e",bc="#2a2a3e",col="#ccc";
+                          if(qAns!==null){
+                            if(ok){bg="#4ECDC422";bc="#4ECDC4";col="#4ECDC4";}
+                            else if(qAns===i){bg="#f5522222";bc="#f55";col="#f55";}
+                          }
+                          return (
+                            <div key={i} style={{...S.opt,background:bg,borderColor:bc,color:col,cursor:"pointer"}}
+                              onClick={()=>handleQA(i)}>
+                              <span style={{...S.optN,background:bc+"44",color:bc}}>{i+1}</span>
+                              <span style={{flex:1}}>{opt}</span>
+                              {qAns!==null&&ok&&<span style={{color:"#4ECDC4",fontWeight:900,fontSize:16}}>✓</span>}
+                            </div>
+                          );
+                        })}
                       </div>
                       {qAns !== null && (
                         <div style={{...S.expl,marginTop:12}}>
