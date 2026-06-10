@@ -559,6 +559,13 @@ const QUESTIONS = [
     ans: 1, ansText: "흡기압(MAP)센서",
     explain: "MAP 센서는 흡기 온도와 압력을 동시에 측정하며, 이상 시 공회전 불안정 및 가속불량이 발생한다.",
   },
+{
+    no: 24, cat: "engine", exam: "sep23",
+    q: "[9월] 4행정 4기통 엔진의 폭발력에 의한 주 가진력 차수(Order)로 맞는 것은?",
+    opts: ["1차","1.5차","2차","3차"],
+    ans: 3, ansText: "2차",
+    explain: "4행정 4기통 엔진의 주 가진력 차수는 기통수/2 = 4/2 = 2차이다.",
+  },
 
   // ─── 하이브리드 (9월) ───
   {
@@ -629,13 +636,7 @@ const QUESTIONS = [
     ans: 3, ansText: "가속도계와 물체 사이의 마찰력을 측정하기 위한 센서이다",
     explain: "가속도계는 마찰력이 아닌 진동(압전소자 압축/인장)을 감지하는 센서이다.",
   },
-  {
-    no: 24, cat: "engine", exam: "sep23",
-    q: "[9월] 4행정 4기통 엔진의 폭발력에 의한 주 가진력 차수(Order)로 맞는 것은?",
-    opts: ["1차","1.5차","2차","3차"],
-    ans: 3, ansText: "2차",
-    explain: "4행정 4기통 엔진의 주 가진력 차수는 기통수/2 = 4/2 = 2차이다.",
-  },
+  
   {
     no: 25, cat: "electrical", exam: "sep23",
     q: "[9월] 음압 수준(SPL)에 대한 설명이다. 틀린 것은?",
@@ -729,6 +730,42 @@ const QUESTIONS = [
     ans: 1, ansText: "DCU는 다량의 데이터(GCS)의 OTA 허브이나 LTE통신을 통해 AVN에 맵 업데이트 및 서비스 정보를 제공한다",
     explain: "DCU는 LTE 통신 허브 역할을 하며 차량 OTA 업데이트 및 외부 서비스 연동을 담당한다.",
   },
+ {
+    no: 46, cat: "body", exam: "sep23",
+    q: "[9월] IBU(BCM)의 기능에 대한 설명으로 맞는 것은?",
+    opts: ["오디오 제어: 오디오 및 미디어 재생을 제어하고 앰프 신호를 생성한다","파워 윈도우 제어: 파워 윈도우 스위치 입력값을 받아 모터를 제어하고 윈도우 위치를 저장한다","와이퍼 제어: 차량에서 어떤 부품의 위치 또는 열림 정도를 판단하고 와이퍼 속도를 제어한다","잠금 제어: 차량 내부의 잠금 장치를 제어하고 사용자의 요청에 따라 잠금/잠금 해제 작동한다"],
+    ans: 4, ansText: "잠금 제어: 차량 내부의 잠금 장치를 제어하고 사용자의 요청에 따라 잠금/잠금 해제 작동한다",
+    explain: "IBU(IBU=BCM)는 도어 잠금/해제 제어를 담당하며, 스마트키 및 내/외부 요청에 따라 잠금을 제어한다.",
+  },
+   {
+    no: 47, cat: "body", exam: "sep23",
+    q: "[9월] 스마트키(SKM/IBU)와 BCM 시스템의 통신방식과 신호에 대해 설명한 것이다. 맞는 것은?",
+    opts: ["①②③","②③④","①③","②④"],
+    ans: 3, ansText: "①③",
+    explain: "스마트키 시스템: SMK(IBU)가 LF 신호 발신 → 스마트키 수신 → RF 응답 → SMK(IBU) 인증 순서로 작동한다.",
+  },
+   {
+    no: 48, cat: "body", exam: "sep23",
+    q: "[9월] 스마트키의 자동 잠금/잠금 해제에 대해서 SBCM(Side body zone Control Module)의 단품 오류 원인으로 맞는 것은?",
+    opts: ["스마트키 불량","SMK(IBU) 불량이다","SMK(IBU)도 불량은 아니다","스마트키와 SBCM 불량이다"],
+    ans: 3, ansText: "SMK(IBU)도 불량은 아니다",
+    explain: "SBCM 단품 오류 시 SMK(IBU)는 정상이나 SBCM 자체의 문제로 잠금/해제 기능이 불량할 수 있다.",
+  },
+  {
+    no: 49, cat: "body", exam: "sep23",
+    q: "[9월] 아이오닉6의 차량 자동주행(Advanced Airbag) 시스템 인식의 일정수 중 사용 조건 목적으로 맞는 것은?",
+    opts: ["에어백의 화약량(DAB)를 줄이기 위해","앞좌석 승객의 안전벨트 착용 여부를 감지하기 위해","앞 승객의 탑승 유무를 감지하기 위해","안전 장치인 PAB(Passenger Airdag), PTR(Pretensioner), EFD(Emergency Fastening Device)의 작동을 제어하기 위해"],
+    ans: 4, ansText: "안전 장치인 PAB(Passenger Airdag), PTR(Pretensioner), EFD(Emergency Fastening Device)의 작동을 제어하기 위해",
+    explain: "OCS(탑승자 분류 시스템)의 목적은 PAB, PTR, EFD 등의 보호장치를 탑승자 특성에 맞게 최적으로 제어하는 것이다.",
+  },
+  {
+    no: 50, cat: "body", exam: "sep23",
+    q: "[9월] SBCM(Side BCM)에 대한 설명으로 맞는 것은?",
+    opts: ["이더넷 방식으로 데이터를 전송하여, PDSE G90 기능이 있다","SBCMs 2개가 통합되어 1개로 동작하며 BCM과 별도로 운용된다","30초마다 이이오닉(IBU)과 CAN을 통해 BCM이 상태 데이터를 교환하며, 1907이 활성화된다","SBCM는 각 도어의 릴레이, 스위치, 모터 등의 컨트롤 및 진단 데이터를 운영하며, PDSE G90 기능이 있다"],
+    ans: 4, ansText: "SBCM는 각 도어의 릴레이, 스위치, 모터 등의 컨트롤 및 진단 데이터를 운영하며, PDSE G90 기능이 있다",
+    explain: "SBCM은 각 도어 구역의 릴레이, 스위치, 모터를 제어하고 진단 데이터를 관리하며 PDSE 기능을 담당한다.",
+  },
+// ─── 통신 (9월) ───
   {
     no: 38, cat: "comm", exam: "sep23",
     q: "[9월] CAN BUS OFF 고장코드 발생 원인으로 맞는 것은?",
@@ -743,8 +780,6 @@ const QUESTIONS = [
     ans: 2, ansText: "전선 내부 LOW 라인과 HIGH 라인의 단선",
     explain: "HS-CAN 파형에서 HIGH/LOW 두 선이 동일하게 2.5V로 나타나는 현상은 한 선의 단선으로 인한 것이다.",
   },
-
-  // ─── 전기 기초 (9월) ───
   {
     no: 40, cat: "comm", exam: "sep23",
     q: "[9월] 아래의 그림을 CAN FD 통신의 비트(Bit) 단위의 전압의 형태를 표현한 것이다. 맞는 것은?",
@@ -752,6 +787,7 @@ const QUESTIONS = [
     ans: 2, ansText: "2번",
     explain: "CAN FD는 Dominant(0)일 때 HIGH-LOW 전압 차이가 크고, Recessive(1)일 때 두 라인이 동일 전압(2.5V)을 유지하는 파형을 가진다.",
   },
+// ─── 전기 기초 (9월) ───
   {
     no: 41, cat: "electrical", exam: "sep23",
     q: "[9월] 다음 중 접지 타입을 판별하는 방법에 대해서 맞는 것은?",
@@ -789,42 +825,7 @@ const QUESTIONS = [
     ans: 2, ansText: "2.1V",
     explain: "30°C에서 NTC 센서 저항은 약 24kΩ이며, 5V 전원과 38kΩ 풀업 저항과의 분압 공식으로 계산 시 약 2.1V가 출력된다.",
   },
-  {
-    no: 46, cat: "body", exam: "sep23",
-    q: "[9월] IBU(BCM)의 기능에 대한 설명으로 맞는 것은?",
-    opts: ["오디오 제어: 오디오 및 미디어 재생을 제어하고 앰프 신호를 생성한다","파워 윈도우 제어: 파워 윈도우 스위치 입력값을 받아 모터를 제어하고 윈도우 위치를 저장한다","와이퍼 제어: 차량에서 어떤 부품의 위치 또는 열림 정도를 판단하고 와이퍼 속도를 제어한다","잠금 제어: 차량 내부의 잠금 장치를 제어하고 사용자의 요청에 따라 잠금/잠금 해제 작동한다"],
-    ans: 4, ansText: "잠금 제어: 차량 내부의 잠금 장치를 제어하고 사용자의 요청에 따라 잠금/잠금 해제 작동한다",
-    explain: "IBU(IBU=BCM)는 도어 잠금/해제 제어를 담당하며, 스마트키 및 내/외부 요청에 따라 잠금을 제어한다.",
-  },
-   {
-    no: 47, cat: "body", exam: "sep23",
-    q: "[9월] 스마트키(SKM/IBU)와 BCM 시스템의 통신방식과 신호에 대해 설명한 것이다. 맞는 것은?",
-    opts: ["①②③","②③④","①③","②④"],
-    ans: 3, ansText: "①③",
-    explain: "스마트키 시스템: SMK(IBU)가 LF 신호 발신 → 스마트키 수신 → RF 응답 → SMK(IBU) 인증 순서로 작동한다.",
-  },
-   {
-    no: 48, cat: "body", exam: "sep23",
-    q: "[9월] 스마트키의 자동 잠금/잠금 해제에 대해서 SBCM(Side body zone Control Module)의 단품 오류 원인으로 맞는 것은?",
-    opts: ["스마트키 불량","SMK(IBU) 불량이다","SMK(IBU)도 불량은 아니다","스마트키와 SBCM 불량이다"],
-    ans: 3, ansText: "SMK(IBU)도 불량은 아니다",
-    explain: "SBCM 단품 오류 시 SMK(IBU)는 정상이나 SBCM 자체의 문제로 잠금/해제 기능이 불량할 수 있다.",
-  },
-  {
-    no: 49, cat: "body", exam: "sep23",
-    q: "[9월] 아이오닉6의 차량 자동주행(Advanced Airbag) 시스템 인식의 일정수 중 사용 조건 목적으로 맞는 것은?",
-    opts: ["에어백의 화약량(DAB)를 줄이기 위해","앞좌석 승객의 안전벨트 착용 여부를 감지하기 위해","앞 승객의 탑승 유무를 감지하기 위해","안전 장치인 PAB(Passenger Airdag), PTR(Pretensioner), EFD(Emergency Fastening Device)의 작동을 제어하기 위해"],
-    ans: 4, ansText: "안전 장치인 PAB(Passenger Airdag), PTR(Pretensioner), EFD(Emergency Fastening Device)의 작동을 제어하기 위해",
-    explain: "OCS(탑승자 분류 시스템)의 목적은 PAB, PTR, EFD 등의 보호장치를 탑승자 특성에 맞게 최적으로 제어하는 것이다.",
-  },
-  {
-    no: 50, cat: "body", exam: "sep23",
-    q: "[9월] SBCM(Side BCM)에 대한 설명으로 맞는 것은?",
-    opts: ["이더넷 방식으로 데이터를 전송하여, PDSE G90 기능이 있다","SBCMs 2개가 통합되어 1개로 동작하며 BCM과 별도로 운용된다","30초마다 이이오닉(IBU)과 CAN을 통해 BCM이 상태 데이터를 교환하며, 1907이 활성화된다","SBCM는 각 도어의 릴레이, 스위치, 모터 등의 컨트롤 및 진단 데이터를 운영하며, PDSE G90 기능이 있다"],
-    ans: 4, ansText: "SBCM는 각 도어의 릴레이, 스위치, 모터 등의 컨트롤 및 진단 데이터를 운영하며, PDSE G90 기능이 있다",
-    explain: "SBCM은 각 도어 구역의 릴레이, 스위치, 모터를 제어하고 진단 데이터를 관리하며 PDSE 기능을 담당한다.",
-  },
-
+ 
   // ══════════════════════════════════════════
   // ─── 2023년 10월 HMCP 1차 평가 (L3) ───
   // ══════════════════════════════════════════
