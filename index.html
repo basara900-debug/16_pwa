@@ -34,12 +34,12 @@ const { useState, useEffect, useRef, useMemo, useCallback, useReducer, useContex
 const { createRoot } = ReactDOM;
 const CATEGORIES = [
   { id: "engine",        label: "엔진",    icon: "⚙️",  color: "#FF6B35", bg: "#FF6B3520" },
-  { id: "mission",       label: "미션",    icon: "🔧",  color: "#F7C59F", bg: "#F7C59F20" },
-  { id: "electric_sys",  label: "전기전장", icon: "⚡",  color: "#FFE66D", bg: "#FFE66D20" },
-  { id: "body",          label: "바디",    icon: "🚗",  color: "#4ECDC4", bg: "#4ECDC420" },
-  { id: "comm",          label: "통신",    icon: "📡",  color: "#45B7D1", bg: "#45B7D120" },
-  { id: "electrical",    label: "전기",    icon: "🔌",  color: "#A8E6CF", bg: "#A8E6CF20" },
-  { id: "hybrid",        label: "하이브리드", icon: "🔋", color: "#88D8B0", bg: "#88D8B020" },
+  { id: "mission",       label: "미션샤시",    icon: "🔧",  color: "#F7C59F", bg: "#F7C59F20" },
+  { id: "electric_sys",  label: "ev", icon: "⚡",  color: "#FFE66D", bg: "#FFE66D20" },
+  { id: "body",          label: "바디전장",    icon: "🚗",  color: "#4ECDC4", bg: "#4ECDC420" },
+  { id: "comm",          label: "통신네트",    icon: "📡",  color: "#45B7D1", bg: "#45B7D120" },
+  { id: "electrical",    label: "기초전기nvh",    icon: "🔌",  color: "#A8E6CF", bg: "#A8E6CF20" },
+  { id: "hybrid",        label: "hev", icon: "🔋", color: "#88D8B0", bg: "#88D8B020" },
   { id: "hydrogen",      label: "수소",    icon: "💧",  color: "#7EC8E3", bg: "#7EC8E320" },
 ];
 
@@ -98,7 +98,7 @@ const QUESTIONS = [
   },
   // ─── 미션 ───
   {
-    no: 9, cat: "mission",
+    no: 9, cat: "hybrid",
     exam: "jun23",
     q: "HEV 차량의 엔진 클러치에 대한 설명으로 맞는 것은?",
     opts: ["자동변속기 적용 차량은 건식 엔진 클러치를 적용하였다","DCT 적용 차량은 습식 엔진 클러치를 적용하였다","DCT 적용 차량은 엔진 클러치 작동 기능에 문제가 생기더라도 엔진을 이용한 주행이 가능하다","DCT 적용 차량의 엔진 클러치는 자동변속기 오일로 주입하여야 한다"],
@@ -171,8 +171,8 @@ const QUESTIONS = [
     explain: "모터와 인버터는 일체형이며, 냉각은 수냉식이고, 전후륜 모두 동기 모터를 사용한다.",
   },
   {
-    no: 8, cat: "electric_sys",
-    exam: "jun23",
+    no: 8, cat: "hybrid",
+   exam: "jun23",
     q: "HEV(Hybrid Electric Vehicle) 차량의 BMS(Battery Management System)에 대한 설명이다. 틀린 것은?",
     opts: ["배터리 전압, 전류, 온도를 측정하여 SOC(State Of Charge)를 계산한다","CMU(Cell Monitoring Unit)와 통신을 하며 셀 밸런싱을 한다","배터리 보호를 위해 상황별 입/출력 에너지 제한값을 산출한다","냉각 팬 구동 및 속도 제어를 통해 최적의 배터리 동작 온도를 유지/관리 한다"],
     ans: 2, ansText: "CMU(Cell Monitoring Unit)와 통신을 하며 셀 밸런싱을 한다",
@@ -228,7 +228,7 @@ const QUESTIONS = [
     explain: "SCC는 전방 레이더를 활용한다.",
   },
   {
-    no: 24, cat: "body",
+    no: 24, cat: "electrical",
     exam: "jun23",
     q: "가속도 측정을 통한 BSR 진단의 기본 원리에 대한 설명이다. 맞는 것은?",
     opts: ["충격 진동의 도달 시간과 크기 차이를 비교하여 원인 부위를 추적한다","구동 부품 회전수와 형상적 특징(ex: 기어 잇수)을 알면 고장 시 문제 주파수를 알 수 있다","역위상의 진동파를 발생시켜서 전체적인 진동 레벨을 지감시킨다","마이크로폰과 가속도 데이터를 모니터링하여, 위상제어로 500Hz 이하 로드노이즈를 저감시킨다"],
@@ -236,7 +236,7 @@ const QUESTIONS = [
     explain: "BSR 진단은 충격 진동의 도달 시간과 크기 차이 비교를 통해 원인 부위를 추적한다.",
   },
   {
-    no: 25, cat: "body",
+    no: 25, cat: "electrical",
     exam: "jun23",
     q: "BSR에 대한 설명이다. 틀린 것은?",
     opts: ["Buzz(버즈), Squeak(스퀵), Rattle(래틀)의 약자이다","설계적으로 의도하지 않은 소리이므로 없애는 것이 최우선 이다","대부분 지속 시간이 짧은 단발성 소음이다","엔진, 타이어 소음 등 차량의 기본 소음이 클수록 이음성 BSR이 잘 들린다"],
@@ -244,7 +244,7 @@ const QUESTIONS = [
     explain: "차량의 기본 소음이 클수록 BSR이 잘 들리지 않는다.",
   },
   {
-    no: 27, cat: "body",
+    no: 27, cat: "mission",
     exam: "jun23",
     q: "DN8 HEV, GV70에 적용되는 IEB(Integrated Electronic Brake)에 대한 설명이다. 틀린 것은?",
     opts: ["IEB 교체 후 배리언트 코딩, 중방향 G 센서/압력 센서/PTS 영점 설정을 실시한다","PTS(Pedal Travel Sensor) 교체시에는 PTS 영점 설정만 실시하고, 압력센서/중방향 G 센서 영점 설정은 불필요 하다","IEB 교체시 강제순한 모드를 실시하나, 캘리퍼 단순 교체시에는 실시하지 않아도 된다","브레이크 오일 공기빼기 1차 작업 시에는 반드시 IEB의 전원을 차단한 상태에서 실시 하여야 한다"],
@@ -252,7 +252,7 @@ const QUESTIONS = [
     explain: "PTS 교체 후에도 PTS 영점 설정만 실시하고, 압력센서/중방향 G 센서 영점 설정을 실시해야 한다.",
   },
   {
-    no: 28, cat: "body",
+    no: 28, cat: "mission",
     exam: "jun23",
     q: "차체자세제어장치(ESC)의 기능 및 부가기능에 대한 설명이다. 틀린 것은?",
     opts: ["ABS: 주행 중 미끄러운 도로에서 제동할 때 휠의 잠김을 방지하는 기능","TCS: 주행 중 미끄러운 도로에서 가속할 때 노면과 휠의 슬립을 방지하는 기능","EBD: 코너링 주행 중 탈출 성능을 확보하기 위해 좌우 브레이크 유압을 제어하는 기능","ESS: 주행 중 급제동을 하거나 ABS/ESC가 작동되면 브레이크 또는 비상등 램프를 점등하는 기능"],
@@ -260,7 +260,7 @@ const QUESTIONS = [
     explain: "EBD는 제동 시 승차원이나 적재하중에 맞추어 전후륜에 적절한 제동력을 자동분배하는 기능이다.",
   },
   {
-    no: 30, cat: "body",
+    no: 30, cat: "mission",
     exam: "jun23",
     q: "전자제어서스펜션(ECS)의 구성품 중 지면과 차량의 높이를 감지하는 구성품으로 맞는 것은?",
     opts: ["바디 G-센서","차속 센서","차고 센서","휠 G-센서"],
@@ -269,7 +269,7 @@ const QUESTIONS = [
   },
   // ─── 통신 ───
   {
-    no: 34, cat: "comm",
+    no: 34, cat: "body",
     exam: "jun23",
     q: "차량 주변을 촬영하는 카메라에서 헤드유닛 또는 ADAS PRK로 영상 신호를 전송하는 통신으로 맞는 것은?",
     opts: ["SPDIF 또는 A2B","LVDS 또는 S-Video","CAN 또는 LIN","Ethernet 또는 CAN FD"],
@@ -277,7 +277,7 @@ const QUESTIONS = [
     explain: "영상을 전송하는 통신은 현재 LVDS 또는 S-Video 두 방식이다.",
   },
   {
-    no: 35, cat: "comm",
+    no: 35, cat: "body",
     exam: "jun23",
     q: "블루링크를 활용한 원격제어(예. 엔진 시동)가 되지 않는다. 고장 원인으로 틀린 것은?",
     opts: ["스마트키 불량","LTE 안테나","CAN 통신라인 불량","CGW 불량"],
@@ -367,7 +367,7 @@ const QUESTIONS = [
   },
   // ─── 하이브리드 ───
   {
-    no: 6, cat: "hybrid",
+    no: 6, cat: "electric_sys",
     exam: "jun23",
     q: "전기차의 열관리시스템의 회로이다. 히트 펌프 작동 시 관련있는 부품으로 맞는 것은?",
     opts: ["① 3 WAY 밸브","② 3 WAY 밸브","③ 배터리 칠러 팽창밸브","④ 팽창 밸브"],
@@ -383,7 +383,7 @@ const QUESTIONS = [
     explain: "이온필터를 적용하여 냉각수 내 이온도전(전기 전도도)를 낮춰주는 것이 아닌 냉각수 내 이온도전(전기 전도도)를 낮춰주는 것이다.",
   },
   {
-    no: 46, cat: "hybrid",
+    no: 46, cat: "body",
     exam: "jun23",
     q: "코나(SX2)에 적용된 P-LBM이 Normal Discharging을 실시하는 조건으로 틀린 것은?",
     opts: ["제어기 OTA 진입 시","KEY OFF 직후","블루링크 신호 수신 시","애프터 블로우 시작 시"],
@@ -401,7 +401,7 @@ const QUESTIONS = [
   },
   // ─── 통신 추가 ───
   {
-    no: 31, cat: "comm",
+    no: 31, cat: "body",
     exam: "jun23",
     q: "AVN 모니터를 통해 SVM(주차영상)을 출력할 때, 입력 신호로 맞는 것은?",
     opts: ["IG 전원 + R단 신호","ACC 전원 + R단 신호","IG 전원 + ACC 전원 + R단 신호","ST 전원 + R단 신호"],
@@ -409,7 +409,7 @@ const QUESTIONS = [
     explain: "IG 전원(또는 시동 상태) 이상에서 R단 입력 시 SVM 영상 출력됨.",
   },
   {
-    no: 32, cat: "comm",
+    no: 32, cat: "body",
     exam: "jun23",
     q: "AVN 시스템에 오류 발생 시(예. 화면 변화 없음) 리셋(Reset) 버튼을 눌러 시스템을 재시작할 수 있다. 이때 발생하는 현상으로 맞는 것은?",
     opts: ["라디오 채널 저장 항목이 초기화 된다","전화 수발신 항목과 같은 개인 정보가 초기화된다","사용자 프로필이 초기화된다","설정 변화 없이 AVN 시스템만 재시작 된다"],
@@ -417,7 +417,7 @@ const QUESTIONS = [
     explain: "초기화 버튼은 단순히 시스템을 재시작하기 위해 적용된다.",
   },
   {
-    no: 33, cat: "comm",
+    no: 33, cat: "body",
     exam: "jun23",
     q: "엔진 시동 후 AVN의 기본 기능은 정상으로 동작하지만 차량 설정 항목이 활성화되지 않는다. 원인으로 맞는 것은?",
     opts: ["사용자 프로필이 등록되지 않았다","블루링크를 통한 인증이 되지 않았다","헤드유닛에 IG 전원이 입력되지 않았다","AVN 모드가 외부입력(폰 프로젝션)으로 설정되어 있다"],
@@ -425,7 +425,7 @@ const QUESTIONS = [
     explain: "헤드유닛은 IG 전원이 입력되어야 차량과 연동되는 작동을 할 수 있다.",
   },
   {
-    no: 47, cat: "comm",
+    no: 47, cat: "body",
     exam: "jun23",
     q: "GV60(JW) 차량에서 LTE 안테나가 연결되는 제어기로 맞는 것은?",
     opts: ["AVN (Audio Video Navigation)","ccIC (Connected Car Intergrated Cockpit)","CCU (Central Communication Unit)","DCU (Data Connectivity Unit)"],
@@ -433,7 +433,7 @@ const QUESTIONS = [
     explain: "JW의 LTE 안테나는 DCU에 연결된다.",
   },
   {
-    no: 48, cat: "comm",
+    no: 48, cat: "body",
     exam: "jun23",
     q: "GV60(JW) 차량에서 얼굴인식시스템 제어기인 FRU 교환 후 학습해야하는 제어기로 맞는 것은?",
     opts: ["IBU-FRU","IAU-FRU","AVN-FRU","ICU-FRU"],
@@ -441,7 +441,7 @@ const QUESTIONS = [
     explain: "FRU 교환 후에는 IAU-FRU 학습을 실시해야 한다.",
   },
   {
-    no: 49, cat: "comm",
+    no: 49, cat: "body",
     exam: "jun23",
     q: "코나(SX2) 빌트인캠2 시스템의 특징으로 맞는 것은?",
     opts: ["음성 녹음이 가능하며, 빌트인캠 내장 스피커를 통해 재생할 수 있다","빌트인 캠 전용 후방 카메라가 적용된다","녹화된 영상은 USB 메모리에 저장된다","블루투스 통신을 통해 스마트폰과 연동되어 영상을 재생할 수 있다"],
@@ -449,7 +449,7 @@ const QUESTIONS = [
     explain: "빌트인캠2 시스템에서는 블루투스 통신은 미적용되고 와이파이 모듈이 내장되었다.",
   },
   {
-    no: 50, cat: "comm",
+    no: 50, cat: "body",
     exam: "jun23",
     q: "에어백 시스템에 대한 설명이다. 다음 설명 중 틀린 것은?",
     opts: ["DAB(Drive Air Bag) 단품의 점화회로 저항 점검 시 약 2Ω이 측정된다","점화회로가 2개인 에어백 모들은 사고 시 두 회로가 동시에 점화되어 큰 팽창 압력으로 승객을 보호한다","OCS(Occuant Classification System)는 운전유무에 따라 유아시트, 어린이, 성인 등을 구분할 수 있다","ACU(Air Bag Control Unit)는 배선 및 점화회로의 전체 저항을 감지하여 고장 유무를 판단한다"],
@@ -458,7 +458,7 @@ const QUESTIONS = [
   },
   // 바디 추가 (6월)
   {
-    no: 23, cat: "body", exam: "jun23",
+    no: 23, cat: "electrical", exam: "jun23",
     q: "다음은 진동을 측정하기 위한 가속도계에 대한 설명이다. 틀린 것은?",
     opts: ["진동 감지시 압전소자에서 전압이 발생한다","감도(Sensitivity)에 따라 가속도계에서 측정된 전압을 가속도 값으로 변환해야 한다","가속도계와 물체 사이의 마찰력을 측정하기 위한 센서이다","가속도계의 외부 커버는 금속이 아니므로 달거지 공구와 과도한 힘을 주면 손상될 수 있다"],
     ans: 3, ansText: "가속도계와 물체 사이의 마찰력을 측정하기 위한 센서이다",
@@ -633,28 +633,28 @@ const QUESTIONS = [
     explain: "SEA는 정차된 차량도 감지하여 경보를 제공한다.",
   },
   {
-    no: 23, cat: "body", exam: "sep23",
+    no: 23, cat: "electrical", exam: "sep23",
     q: "[9월] 다음은 진동 측정을 위한 가속도계에 대한 설명이다. 틀린 것은?",
     opts: ["진동 감지시 압전소자에서 전압이 발생한다","감도(Sensitivity)에 따라 가속도계에서 측정된 전압을 가속도 값으로 변환해야 한다","가속도계와 물체 사이의 마찰력을 측정하기 위한 센서이다","가속도계의 외부 커버는 금속막 이므로 탈거시 공구로 과도한 힘을 주면 손상될 수 있다"],
     ans: 3, ansText: "가속도계와 물체 사이의 마찰력을 측정하기 위한 센서이다",
     explain: "가속도계는 마찰력이 아닌 진동(압전소자 압축/인장)을 감지하는 센서이다.",
   },
   {
-    no: 24, cat: "body", exam: "sep23",
+    no: 24, cat: "engine", exam: "sep23",
     q: "[9월] 4행정 4기통 엔진의 폭발력에 의한 주 가진력 차수(Order)로 맞는 것은?",
     opts: ["1차","1.5차","2차","3차"],
     ans: 3, ansText: "2차",
     explain: "4행정 4기통 엔진의 주 가진력 차수는 기통수/2 = 4/2 = 2차이다.",
   },
   {
-    no: 25, cat: "body", exam: "sep23",
+    no: 25, cat: "electrical", exam: "sep23",
     q: "[9월] 음압 수준(SPL)에 대한 설명이다. 틀린 것은?",
     opts: ["음압의 단위는 파스칼(Pa)이다","음압 수준(SPL)은 음압 세기 레벨을 말하며 10*log(현재음압/기준음압)으로 계산된다","사람이 들을 수 있는 가장 낮은 수준의 음압이 기준음압이다","기준음압은 20 마이크로 파스칼이다"],
     ans: 2, ansText: "음압 수준(SPL)은 음압 세기 레벨을 말하며 10*log(현재음압/기준음압)으로 계산된다",
     explain: "SPL = 20*log(현재음압/기준음압)이다. 10이 아닌 20을 곱한다.",
   },
   {
-    no: 26, cat: "body", exam: "sep23",
+    no: 26, cat: "mission", exam: "sep23",
     q: "[9월] 자동변속기 차량에서 변속레버=D, 브레이크=ON, 엔진회전수=750rpm, 입력축 속도=0rpm, 출력축 속도=0rpm인 경우에 맞는 것은?",
     opts: ["ISG 작동","저속 주행","중립 제어 작동","엔진 시동 & 차량 정차 중"],
     ans: 4, ansText: "엔진 시동 & 차량 정차 중",
@@ -668,21 +668,21 @@ const QUESTIONS = [
     explain: "건식 7DCT의 입·출력 신호에는 종 가속도 센서(ESC 통신)는 포함되지 않는다.",
   },
   {
-    no: 28, cat: "body", exam: "sep23",
+    no: 28, cat: "mission", exam: "sep23",
     q: "[9월] 차량이 제동 중 ABS/ESC가 작동 및 특정 감속도가 되면 브레이크 등도 비상등이 빠르게 점멸되어 후방 차량에게 위험 상황을 경고할 수 있는 ESC 부가기능으로 맞는 것은?",
     opts: ["VSM(Vehicle Stability Management)","ESS(Emergency Stop Signal)","HAC(Hill-Start Assist Control)","ROP(Roll Over Prevention)"],
     ans: 2, ansText: "ESS(Emergency Stop Signal)",
     explain: "ESS는 급제동 시 비상등을 빠르게 점멸하여 후방 차량에 위험을 알리는 기능이다.",
   },
   {
-    no: 29, cat: "body", exam: "sep23",
+    no: 29, cat: "mission", exam: "sep23",
     q: "[9월] 전자제어서스펜션(ECS)의 구성품 중 차량의 상, 하 움직임을 감지하는 구성품으로 맞는 것은?",
     opts: ["바디 G-센서","차속 센서","차고 센서","휠 G-센서"],
     ans: 1, ansText: "바디 G-센서",
     explain: "바디 G-센서(가속도 센서)가 차량의 상하 방향 움직임(바운싱)을 감지한다.",
   },
   {
-    no: 30, cat: "body", exam: "sep23",
+    no: 30, cat: "mission", exam: "sep23",
     q: "[9월] G90(RS4)의 멀티챔버 에어서스펜션 시스템의 구성품으로 틀린 것은?",
     opts: ["멀티 챔버 에어 스프링, 차고 센서, 컴프레서, 리저버 탱크","차고 센서, 밸브 블록(Sol v/v block), 에어 필터, 충전 밸브","6축 센서(ECU 내장형), 밸브 블록, 차고 조절 스위치, 에어 ECS 온도센서","휠 가속도 센서, 에어 필터, 차고 조절 스위치, 리저버 탱크"],
     ans: 3, ansText: "6축 센서(ECU 내장형), 밸브 블록, 차고 조절 스위치, 에어 ECS 온도센서",
@@ -691,49 +691,49 @@ const QUESTIONS = [
 
   // ─── 통신 (9월) ───
   {
-    no: 31, cat: "comm", exam: "sep23",
+    no: 31, cat: "body", exam: "sep23",
     q: "[9월] 멀티미디어 박스에는 USB 단자와 AUX 포트가 구성되어 있다. USB 인식은 잘 되지만 AUX를 인식하지 못한다면 원인으로 맞는 것은?",
     opts: ["AUX Detect 라인 접지 단락","AUX 케이블 단선","멀티미디어 박스 커넥터 탈거됨","USB 메모리가 삽입 되어 있음"],
     ans: 1, ansText: "AUX Detect 라인 접지 단락",
     explain: "USB는 정상이지만 AUX만 인식 안 될 경우 AUX Detect 라인 접지 단락을 의심한다.",
   },
   {
-    no: 32, cat: "comm", exam: "sep23",
+    no: 32, cat: "body", exam: "sep23",
     q: "[9월] ISG(Idle Stop & Go) 적용 차량은 기능 진입 후 재 시동 시 AVN의 재 부팅을 방지하기 위해 DC-DC 컨버터가 적용된다. 이 시스템에 대한 설명으로 틀린 것은?",
     opts: ["헤드유닛은 DC-DC 컨버터를 통해 상시전원(B+)과 ACC 전원이 공급된다","AVN 시스템에서는 헤드유닛과 외장 앰프로 전원이 공급된다","서브 우퍼의 출력을 보호하기 위해 저장된 전력을 출력한다","DC-DC 컨버터 불량 시 AVN 시스템은 작동되지 않을 수 있다"],
     ans: 3, ansText: "서브 우퍼의 출력을 보호하기 위해 저장된 전력을 출력한다",
     explain: "DC-DC 컨버터는 서브 우퍼 보호가 아닌 AVN 재부팅 방지를 위해 저장된 전력을 공급한다.",
   },
   {
-    no: 33, cat: "comm", exam: "sep23",
+    no: 33, cat: "body", exam: "sep23",
     q: "[9월] 무선 데이터를 수신하는 LTE 안테나로 입력되는 전압으로 맞는 것은?",
     opts: ["패시브 방식이므로 증폭 회로용 5V가 입력됨","패시브 방식이므로 증폭 회로용 12V가 입력됨","액티브 방식이므로 증폭 회로용 5V~12V가 입력됨","액티브 방식이므로 증폭 없음"],
     ans: 3, ansText: "액티브 방식이므로 증폭 회로용 5V~12V가 입력됨",
     explain: "LTE 안테나는 액티브 방식으로, 증폭 회로를 위해 5V~12V 전원이 공급된다.",
   },
   {
-    no: 34, cat: "comm", exam: "sep23",
+    no: 34, cat: "body", exam: "sep23",
     q: "[9월] AVN 시스템의 입력 소스 종류에 해당하지 않는 것은?",
     opts: ["AM/FM 안테나","터치디스플레이(VPC)","외장 장치(USB & AUX)","외장 앰프(External AMP)"],
     ans: 4, ansText: "외장 앰프(External AMP)",
     explain: "외장 앰프는 AVN 시스템의 출력 장치이지 입력 소스가 아니다.",
   },
   {
-    no: 35, cat: "comm", exam: "sep23",
+    no: 35, cat: "body", exam: "sep23",
     q: "[9월] AVN 내비게이션 시스템과 연동되는 제어기들에 대한 설명이다. 틀린 것은?",
     opts: ["클러스터는 내비게이션과 통신하여 C-CAN이나 C-CANFD을 통해 경로 정보, 속도 제한 등을 수신하고 운전자에게 표시할 수 있다","클러스터는 내비게이션과 연결되어 D-CAN을 통해 차선 진입, 속도 정보를 수신 할 수 있다","CGW와 차기신단 단자(GCS)의 OTA 허브이나 LTE통신을 통해 AVN에 맵 업데이트 및 서비스 정보를 제공한다","외부 서버와 내비게이션이 연동 통신할 경우 D-CAN으로 통신하며 CGW 라디오 시리얼 모듈이 D-CAN 통신을 내비게이션에 전달한다"],
     ans: 2, ansText: "클러스터는 내비게이션과 연결되어 D-CAN을 통해 차선 진입, 속도 정보를 수신 할 수 있다",
     explain: "클러스터는 D-CAN이 아닌 C-CAN 또는 C-CANFD를 통해 내비게이션과 통신한다.",
   },
   {
-    no: 36, cat: "comm", exam: "sep23",
+    no: 36, cat: "body", exam: "sep23",
     q: "[9월] 히든 미터 단품의 제어모듈(CGW)의 역할에 대한 설명으로 맞는 것은?",
     opts: ["클러스터를 포함한 차량 내부 제어기들에게 전원 공급을 제공하며, 단순 배전 기능만 가능하다","클러스터는 차량 내 다른 네트워크와 독립적으로 작동하며 차량 상태 정보만을 수신할 수 있다","히든 미터 단품의 missing tooth에 18Ω, 10Ω에 따른 저항 매칭을 통해 클러스터 종류를 판별한다","히든 미터 단품을 포함한 각 제어기들은 12000이 넘으면 BCM의 지시에 의해 리부팅된다"],
     ans: 3, ansText: "히든 미터 단품의 missing tooth에 18Ω, 10Ω에 따른 저항 매칭을 통해 클러스터 종류를 판별한다",
     explain: "히든 미터는 저항값을 통해 클러스터 종류(타입)를 판별한다.",
   },
   {
-    no: 37, cat: "comm", exam: "sep23",
+    no: 37, cat: "body", exam: "sep23",
     q: "[9월] DCU(DATA Connectivity Unit)에 대한 설명으로 맞는 것은?",
     opts: ["DCU는 다량의 데이터(GCS)의 OTA 허브이나 LTE통신을 통해 AVN에 맵 업데이트 및 서비스 정보를 제공한다","DCU는 외부 서버와의 통신에 C-CAN에서 내부통신 C-CAND를 통해 D-CAN으로 라우팅하는 게이트웨이 기능을 한다","CGW와 차기신단 단자의 OBD 저자신의 C-CAN에서 내부통신 C-CAND를 통해 D-CAN으로 라우팅을 함과 동시에 AVN에 중계한다","DCU는 외부 서버와 통신하는 기능은 없으나, 내비게이션이 없는 차량에서 CGW와 D-CAN으로 통신하며, 12000이 넘으면 BCM의 지시에 의해 작동되지 않는다"],
     ans: 1, ansText: "DCU는 다량의 데이터(GCS)의 OTA 허브이나 LTE통신을 통해 AVN에 맵 업데이트 및 서비스 정보를 제공한다",
@@ -756,7 +756,7 @@ const QUESTIONS = [
 
   // ─── 전기 기초 (9월) ───
   {
-    no: 40, cat: "electrical", exam: "sep23",
+    no: 40, cat: "comm", exam: "sep23",
     q: "[9월] 아래의 그림을 CAN FD 통신의 비트(Bit) 단위의 전압의 형태를 표현한 것이다. 맞는 것은?",
     opts: ["1번","2번","3번","4번"],
     ans: 2, ansText: "2번",
@@ -800,35 +800,35 @@ const QUESTIONS = [
     explain: "30°C에서 NTC 센서 저항은 약 24kΩ이며, 5V 전원과 38kΩ 풀업 저항과의 분압 공식으로 계산 시 약 2.1V가 출력된다.",
   },
   {
-    no: 46, cat: "electric_sys", exam: "sep23",
+    no: 46, cat: "body", exam: "sep23",
     q: "[9월] IBU(BCM)의 기능에 대한 설명으로 맞는 것은?",
     opts: ["오디오 제어: 오디오 및 미디어 재생을 제어하고 앰프 신호를 생성한다","파워 윈도우 제어: 파워 윈도우 스위치 입력값을 받아 모터를 제어하고 윈도우 위치를 저장한다","와이퍼 제어: 차량에서 어떤 부품의 위치 또는 열림 정도를 판단하고 와이퍼 속도를 제어한다","잠금 제어: 차량 내부의 잠금 장치를 제어하고 사용자의 요청에 따라 잠금/잠금 해제 작동한다"],
     ans: 4, ansText: "잠금 제어: 차량 내부의 잠금 장치를 제어하고 사용자의 요청에 따라 잠금/잠금 해제 작동한다",
     explain: "IBU(IBU=BCM)는 도어 잠금/해제 제어를 담당하며, 스마트키 및 내/외부 요청에 따라 잠금을 제어한다.",
   },
    {
-    no: 47, cat: "electric_sys", exam: "sep23",
+    no: 47, cat: "body", exam: "sep23",
     q: "[9월] 스마트키(SKM/IBU)와 BCM 시스템의 통신방식과 신호에 대해 설명한 것이다. 맞는 것은?",
     opts: ["①②③","②③④","①③","②④"],
     ans: 3, ansText: "①③",
     explain: "스마트키 시스템: SMK(IBU)가 LF 신호 발신 → 스마트키 수신 → RF 응답 → SMK(IBU) 인증 순서로 작동한다.",
   },
    {
-    no: 48, cat: "electric_sys", exam: "sep23",
+    no: 48, cat: "body", exam: "sep23",
     q: "[9월] 스마트키의 자동 잠금/잠금 해제에 대해서 SBCM(Side body zone Control Module)의 단품 오류 원인으로 맞는 것은?",
     opts: ["스마트키 불량","SMK(IBU) 불량이다","SMK(IBU)도 불량은 아니다","스마트키와 SBCM 불량이다"],
     ans: 3, ansText: "SMK(IBU)도 불량은 아니다",
     explain: "SBCM 단품 오류 시 SMK(IBU)는 정상이나 SBCM 자체의 문제로 잠금/해제 기능이 불량할 수 있다.",
   },
   {
-    no: 49, cat: "electric_sys", exam: "sep23",
+    no: 49, cat: "body", exam: "sep23",
     q: "[9월] 아이오닉6의 차량 자동주행(Advanced Airbag) 시스템 인식의 일정수 중 사용 조건 목적으로 맞는 것은?",
     opts: ["에어백의 화약량(DAB)를 줄이기 위해","앞좌석 승객의 안전벨트 착용 여부를 감지하기 위해","앞 승객의 탑승 유무를 감지하기 위해","안전 장치인 PAB(Passenger Airdag), PTR(Pretensioner), EFD(Emergency Fastening Device)의 작동을 제어하기 위해"],
     ans: 4, ansText: "안전 장치인 PAB(Passenger Airdag), PTR(Pretensioner), EFD(Emergency Fastening Device)의 작동을 제어하기 위해",
     explain: "OCS(탑승자 분류 시스템)의 목적은 PAB, PTR, EFD 등의 보호장치를 탑승자 특성에 맞게 최적으로 제어하는 것이다.",
   },
   {
-    no: 50, cat: "electric_sys", exam: "sep23",
+    no: 50, cat: "body", exam: "sep23",
     q: "[9월] SBCM(Side BCM)에 대한 설명으로 맞는 것은?",
     opts: ["이더넷 방식으로 데이터를 전송하여, PDSE G90 기능이 있다","SBCMs 2개가 통합되어 1개로 동작하며 BCM과 별도로 운용된다","30초마다 이이오닉(IBU)과 CAN을 통해 BCM이 상태 데이터를 교환하며, 1907이 활성화된다","SBCM는 각 도어의 릴레이, 스위치, 모터 등의 컨트롤 및 진단 데이터를 운영하며, PDSE G90 기능이 있다"],
     ans: 4, ansText: "SBCM는 각 도어의 릴레이, 스위치, 모터 등의 컨트롤 및 진단 데이터를 운영하며, PDSE G90 기능이 있다",
@@ -906,14 +906,14 @@ const QUESTIONS = [
 
   // ─── 통신 (10월) ───
   {
-    no: 10, cat: "comm", exam: "oct23",
+    no: 10, cat: "body", exam: "oct23",
     q: "[10월] AVN의 스피커는 차량에 따라 여러 위치에 장착된다. 장착 위치가 아닌 것은?",
     opts: ["크래시패드","엔진 룸","도어","후석 선반(리어 패키지 트레이)"],
     ans: 2, ansText: "엔진 룸",
     explain: "AVN 관련 스피커가 없다.",
   },
   {
-    no: 11, cat: "comm", exam: "oct23",
+    no: 11, cat: "body", exam: "oct23",
     q: "[10월] 외장형 파워앰프(포준형 AVN 5세대)로 입력되는 사운드 신호에 대한 설명이다. 틀린 것은?",
     opts: ["S/PDIF: 멀티미디어 사운드 신호로 사용된다","NAVI 보이스: 헤드 유닛으로 부터 신호를 받아 내비게이션 안내 음성 신호로 사용된다","P-CAN: 엔진 토크 신호를 이용하여 엔진 사운드 효과음으로 사용된다","MM-CAN: 각종 ADAS의 방향성 경고음에 사용된다"],
     ans: 3, ansText: "P-CAN: 엔진 토크 신호를 이용하여 엔진 사운드 효과음으로 사용된다",
@@ -927,7 +927,7 @@ const QUESTIONS = [
     explain: "D_CAN은 60Ω 종단저항 하나이며 모든 차량에 HS CAN이 적용된다.",
   },
   {
-    no: 45, cat: "comm", exam: "oct23",
+    no: 45, cat: "body", exam: "oct23",
     q: "[10월] DCU(DATA Connectivity Unit) 관련된 설명으로 틀린 것은?",
     opts: ["DCU는 대용량의 무선 데이터 전송이 가능하도록 적용된 무선통신 단말기다","DCU는 블루링크(GCS) 및 OTA 서버와 LTE통신을 사용해 통신한다","DCU는 OTA 혹은 블루링크 정보를 AVN에(헤드유닛)과 이더넷 통신으로 정보를 송/수신한다","DCU는 LTE통신을 위해 두개의 안테나 회로에 연결되어 있다"],
     ans: 4, ansText: "DCU는 LTE통신을 위해 두개의 안테나 회로에 연결되어 있다",
@@ -941,14 +941,14 @@ const QUESTIONS = [
     explain: "CAN 통신선에 전원이라도 또는 접지단락이 발생하더라도 종단저항 측정값은 60Ω이 측정된다.",
   },
   {
-    no: 47, cat: "comm", exam: "oct23",
+    no: 47, cat: "body", exam: "oct23",
     q: "[10월] 자동차 안테나를 통해 수신되는 신호 중에서 증폭 전원이 사용되지 않는 패시브 방식의 무선 신호로 맞는 것은?",
     opts: ["GPS: Global Positioning System","LTE: Long Term Evolution","DMB: Digital Multimedia Broadcasting","Radio"],
     ans: 4, ansText: "Radio",
     explain: "GPS, DMB, Radio는 증폭 전원이 없는 패시브 방식이다.",
   },
   {
-    no: 50, cat: "electrical", exam: "oct23",
+    no: 50, cat: "body", exam: "oct23",
     q: "[10월] 와이퍼 시스템에서 Low 및 High는 정상 작동되나 정지위 불량의 현상으로 입고 하였다. 다음 회로에서 분석 및 점검 방법으로 틀린 것은?",
     opts: ["①ⓐ: 와이퍼 파워 릴레이는 Low 및 High가 구동되기 때문에 점검에서 배제한다","②ⓑ: 파킹 시 ICU에서 공급된 전원의 '와이퍼 2 10A'를 통해 입력되기 때문에 퓨즈 단선을 점검한다","③ⓒ: 파킹 스위치 점검으로 E22 3번 단자에서 와이퍼 모터 정지위 불량 시 배터리 전압이 측정되어야 한다","④ⓓ: 엔진 ECU에서 발전 전압 제어의 입력 신호로 활용되기 때문에 정지위 불량과는 무관하다"],
     ans: 1, ansText: "①ⓐ: 와이퍼 파워 릴레이는 Low 및 High가 구동되기 때문에 점검에서 배제한다",
@@ -1050,28 +1050,28 @@ const QUESTIONS = [
     explain: "후측방 레이더는 전자기파(레이더) 신호를 이용한다. 초음파 신호는 초음파 센서가 사용한다.",
   },
   {
-    no: 33, cat: "body", exam: "oct23",
+    no: 33, cat: "electrical", exam: "oct23",
     q: "[10월] 다음은 음압 수준(SPL)에 대한 설명이다. 틀린 것은?",
     opts: ["음압의 단위는 파스칼(Pa)이다","음압 수준(SPL)은 음압 세기 레벨을 말하며 10*log(현재음압/기준음압)으로 계산된다","사람이 들을 수 있는 가장 낮은 수준의 음압이 기준음압이다","기준음압은 20 마이크로 파스칼이다"],
     ans: 2, ansText: "음압 수준(SPL)은 음압 세기 레벨을 말하며 10*log(현재음압/기준음압)으로 계산된다",
     explain: "SPL = 20*log(현재음압/기준음압) dB이다. 10이 아닌 20을 곱한다.",
   },
   {
-    no: 34, cat: "body", exam: "oct23",
+    no: 34, cat: "electrical", exam: "oct23",
     q: "[10월] 다음은 자동차에 적용중인 위상제어 방식 NVH 저감 기술이다. 아닌 것은?",
     opts: ["ACM (액티브 엔진 마운트)","ASD (액티브 사운드 디자인)","ANC (액티브 노이즈 컨트롤)","ANC-R (액티브 노이즈 컨트롤-로드)"],
     ans: 2, ansText: "ASD (액티브 사운드 디자인)",
     explain: "ASD는 위상으로 소음을 만들어주기 위한 기술이 아닌 NVH 위상제어 방식이 아니다.",
   },
   {
-    no: 35, cat: "comm", exam: "oct23",
+    no: 35, cat: "body", exam: "oct23",
     q: "[10월] AVN 모니터를 통해 SVM(주차영상)을 출력할 때, 입력 신호로 맞는 것은?",
     opts: ["IG 전원 + R단 신호","ACC 전원 + R단 신호","상시전원 + R단 신호","ST 전원 + R단 신호"],
     ans: 1, ansText: "IG 전원 + R단 신호",
     explain: "IG 전원(또는 시동 상태) 이상에서 R단 입력 시 SVM 영상 출력된다.",
   },
   {
-    no: 36, cat: "comm", exam: "oct23",
+    no: 36, cat: "body", exam: "oct23",
     q: "[10월] AVN의 전원 공급용 DC-DC 컨버터에 대한 내용이다. 틀린 것은?",
     opts: ["ISG가 탑재된 차량에 적용되는 장치이다","크랭킹 시 순간적인 전압 강하로 인해 헤드유닛이 리셋되는 것을 방지한다","외장형 파워 앰프가 적용될 경우 DC-DC 컨버터는 2개가 적용된다","크랭킹 시 헤드유닛에 전원이 공급되지 않아도 1분 정도는 정상 적용된다"],
     ans: 3, ansText: "외장형 파워 앰프가 적용될 경우 DC-DC 컨버터는 2개가 적용된다",
@@ -1094,7 +1094,7 @@ const QUESTIONS = [
     explain: "750 rpm으로 시동이 걸려 있는 상태, 변속 레버지는 1단 기어 상태, 출력축 rpm이 0이기 때문에, 차량이 정지한 상태이다.",
   },
   {
-    no: 39, cat: "body", exam: "oct23",
+    no: 39, cat: "mission", exam: "oct23",
     q: "[10월] G90(RS4)에 적용된 멀티챔버 에어 서스펜션에 대한 설명이다. 틀린 것은?",
     opts: ["멀티챔버 에어 서스펜션 공기 조입 시, 차량으로 표현된 지면에 롤 정렬 후 진행하도록 한다","공급 압력 및 공기 품질이 원하여 있지 않으며, 에어 서스펜션 적용 차량은 공기주입기가 필요하다","에어스프링 어셈블리를 교환하거나 차고 센서, ECU를 교체 했다면 HSC(Height Sensor Calibration)를 진행한다","HSC 수행 시 노멀 모드에서 각 휠의 차고 값을 모두 측정하도록 한다"],
     ans: 4, ansText: "HSC 수행 시 노멀 모드에서 각 휠의 차고 값을 모두 측정하도록 한다",
@@ -1115,14 +1115,14 @@ const QUESTIONS = [
     explain: "프리 텐셔너 점화 회로의 저항값은 약 2Ω이다.",
   },
   {
-    no: 42, cat: "electric_sys", exam: "oct23",
+    no: 42, cat: "body", exam: "oct23",
     q: "[10월] IBU에 통합된 제어기로 틀린 것은?",
     opts: ["BCM","SJB","SMK","TPMS"],
     ans: 4, ansText: "TPMS",
     explain: "IBU에 내장된 제어기: BCM, SMK, TPMS",
   },
   {
-    no: 43, cat: "comm", exam: "oct23",
+    no: 43, cat: "body", exam: "oct23",
     q: "[10월] 투싼(NX4)에 적용된 편의 사양에 대한 설명이다. 맞는 것은? (설명: 인포테인먼트 화면에서 가정의 조명, 플러그, 에어컨, 보일러, 가스차단기 등의 홈 IoT 기기를 제어할 수 있다.)",
     opts: ["카 페이(Car Pay)","카 플레이(Car Play)","홈 투 홈(Home to Home)","카 투 홈(Car to Home)"],
     ans: 4, ansText: "카 투 홈(Car to Home)",
@@ -1207,7 +1207,7 @@ const QUESTIONS = [
 
   // ─── 전기 기초 추가 (10월) ───
   {
-    no: 46, cat: "electrical", exam: "oct23",
+    no: 46, cat: "comm", exam: "oct23",
     q: "[10월] CAN 통신선에 전원이라도 또는 접지단락이 발생하더라도 종단저항 측정값은 60Ω이 측정된다.",
     opts: ["CAN High 전원 단락 시, 종단저항 측정값은 60Ω이다","CAN High 접지 단락 시, 종단저항 측정값은 0Ω이다","CAN Low 전원 단락 시, 종단저항 측정값은 0Ω이다","CAN Low 접지 단락 시, 종단저항 측정값은 120Ω이다"],
     ans: 2, ansText: "CAN High 접지 단락 시, 종단저항 측정값은 0Ω이다",
@@ -1384,21 +1384,21 @@ const QUESTIONS = [
     explain: "G70 전방 카메라는 HDA 사용을 위해 주행 보정(HDA-II)이 반드시 필요하다.",
   },
   {
-    no: 23, cat: "body", exam: "oct23b",
+    no: 23, cat: "electrical", exam: "oct23b",
     q: "[10월2차] NVH 다음은 NVH 진단 센서에 대한 정보이다. 차량에 적용된 진동 측정 센서와 그 정보(데이터)와 데이터(NVH 기능)의 전달의 역할이다. 틀린 것은?",
     opts: ["가속도계 센서는 진동이 발생하면 압전소자의 압축/인장을 전압으로 출력한다","진동 측정 센서 감도(sensitivity)의 단위는 mV/g 이다","마이크로폰 측정 측정 단위가 없다","차량에 이용되는 NVH 진단 센서는 가속도계와 마이크로폰이 있다"],
     ans: 3, ansText: "마이크로폰 측정 측정 단위가 없다",
     explain: "마이크로폰의 감도는 mV/Pa 단위를 사용한다.",
   },
   {
-    no: 24, cat: "body", exam: "oct23b",
+    no: 24, cat: "electrical", exam: "oct23b",
     q: "[10월2차] NVH 다음 중 67토 체결에 대한 방법으로 맞는 것은?",
     opts: ["측정기 내 위치 별로 체결 토크 조금씩 다르다","체결 결과는 측정기 내에 기록될 수 있고 측정기 내 Undo(실행취소)기능이 있다","볼트 체결 후 측정기 내 상태로 확인 가능하다","반드시 주행 후에 재 측정을 통한 체결 여부를 확인 해야 한다"],
     ans: 2, ansText: "체결 결과는 측정기 내에 기록될 수 있고 측정기 내 Undo(실행취소)기능이 있다",
     explain: "NVH 67토 체결 측정기는 체결 결과를 기록하고 Undo 기능을 제공한다.",
   },
   {
-    no: 25, cat: "body", exam: "oct23b",
+    no: 25, cat: "electrical", exam: "oct23b",
     q: "[10월2차] NVH 다음 중 BSR 고장이 조치에 대한 방법을 설명한다. 맞는 것은?",
     opts: ["1차 조치 후에 현상이 발생하면 2.5차","2차 조치 후에 현상이 발생하면 3.5차","3차 조치 후에 현상이 발생하면 4차","정비 이후에 재 검사 후 완료","수리를 완료 후 차량에서도 20mh이상 주행 후 재 검사를 해야 한다"],
     ans: 3, ansText: "3차 조치 후에 현상이 발생하면 4차",
@@ -1407,35 +1407,35 @@ const QUESTIONS = [
 
   // ─── 통신 (10월2차) ───
   {
-    no: 31, cat: "comm", exam: "oct23b",
+    no: 31, cat: "body", exam: "oct23b",
     q: "[10월2차] AVN 주차 시 AVN 모니터에 표시되는 SVM 영상 중 후방 영상만 출력되지 않는 상태이다(예: 블루 스크린). 점검 방법으로 틀린 것은?",
     opts: ["후방 카메라에 입력되는 전원이 6.5V 인지 점검한다","후방 카메라에서 SVM 유닛(또는 ADAS PRK)으로 입력되는 영상 라인(LVDS) 커넥터의 접촉 불량을 확인한다","SVM 유닛(또는 ADAS PRK)에서 헤드유닛으로 입력되는 영상 라인(LVDS)의 접촉 불량을 확인한다","후방 카에라의 영상신호(LVDS) 라인의 접촉 불량을 확인한다"],
     ans: 1, ansText: "후방 카메라에 입력되는 전원이 6.5V 인지 점검한다",
     explain: "후방 카메라에 입력되는 전원은 12V이며, 6.5V가 아니다.",
   },
   {
-    no: 32, cat: "comm", exam: "oct23b",
+    no: 32, cat: "body", exam: "oct23b",
     q: "[10월2차] AVN USB를 통해 음악을 재생할 때 운전석 도어 스피커에 잡음이 발생하였다. 점검 내용으로 틀린 것은?",
     opts: ["스피커 콘지의 찢어짐을 점검한다","외장 앰프와 스피커 사이의 배선 저항이 0.5Ω 이하인지 점검한다","음악 재생 시 스피커 두 선 사이의 전압이 12V가 측정되는지 점검한다","스피커 저항값이 앰프와 대칭(정합)되는지 점검한다(2Ω 또는 4Ω)"],
     ans: 3, ansText: "음악 재생 시 스피커 두 선 사이의 전압이 12V가 측정되는지 점검한다",
     explain: "스피커 양단 전압은 12V가 아니라 음원 신호에 따라 AC 전압이 측정되어야 한다.",
   },
   {
-    no: 33, cat: "comm", exam: "oct23b",
+    no: 33, cat: "body", exam: "oct23b",
     q: "[10월2차] AVN 헤드유닛과 외장 앰프로 구성된 표준형 5세대 AVN에서, 차량 경고음(주행안전, 주차거리경고 등)이 출력되지 않는다면 원인으로 맞는 것은?",
     opts: ["MM(멀티미디어) CAN 라인 불량","트위터 스피커 불량","우퍼 스피커 불량","VESS 스피커 불량"],
     ans: 1, ansText: "MM(멀티미디어) CAN 라인 불량",
     explain: "외장 앰프가 적용 시 차량 경고음은 외장 앰프에서 출력되며, MM-CAN 라인 불량 시 경고음이 출력되지 않는다.",
   },
   {
-    no: 34, cat: "comm", exam: "oct23b",
+    no: 34, cat: "body", exam: "oct23b",
     q: "[10월2차] AVN 외부 기기에서 AVN으로 음원이 입력되는 방법으로 틀린 것은?",
     opts: ["NFC(Near Field Communication) 통신","AUX(Auxiliary) 포트","블루투스(Bluetooth) 통신","USB(Universal Serial Bus) 통신"],
     ans: 1, ansText: "NFC(Near Field Communication) 통신",
     explain: "NFC는 주로 결제나 기기 연결(페어링 초기화)에 사용되며, 음원 입력 방법으로는 사용되지 않는다.",
   },
   {
-    no: 35, cat: "comm", exam: "oct23b",
+    no: 35, cat: "body", exam: "oct23b",
     q: "[10월2차] AVN AVN 헤드유닛의 버튼을 이용한 리셋 기능에 대한 설명이다. 맞는 것은?",
     opts: ["헤드유닛을 탈거해야만 리셋이 가능하다","리셋 버튼으로 리셋을 하게 되면 저장되어 있는 모든 내용이 지워진다","리셋 버튼을 1초 이상 누르면 시스템만 재 부팅 된다","리셋 이후에는 필히 업데이트를 해 주어야 헤드유닛이 정상 작동된다"],
     ans: 3, ansText: "리셋 버튼을 1초 이상 누르면 시스템만 재 부팅 된다",
@@ -1516,35 +1516,35 @@ const QUESTIONS = [
 
   // ─── 편의/안전 (10월2차) ───
   {
-    no: 46, cat: "electric_sys", exam: "oct23b",
+    no: 46, cat: "body", exam: "oct23b",
     q: "[10월2차] 편의/안전 스마트키 시스템을 제어하기 위해 실내/외에 적용된 LF 안테나에 대한 설명으로 틀린 것은?",
     opts: ["SMK(IBU/BDC)의 구동에 따라 스마트 키로 키 확인 요구신호를 송부한다","사용주파수는 125KHz이다","일반적으로 실내, 아웃사이드 핸들, 트렁크, 리어범퍼쪽에 안테나가 장착된다","안테나의 감지 거리는 약 10M 이내이다"],
     ans: 4, ansText: "안테나의 감지 거리는 약 10M 이내이다",
     explain: "스마트키 LF 안테나의 감지거리는 약 1M 이내이다.",
   },
   {
-    no: 47, cat: "electric_sys", exam: "oct23b",
+    no: 47, cat: "body", exam: "oct23b",
     q: "[10월2차] 편의/안전 ACU(Air Bag Control Unit)에 내장된 센서가 아닌 것은?",
     opts: ["정면 충돌 센서","압력 센서","홀 오버 센서","2G & Yaw 센서"],
     ans: 2, ansText: "압력 센서",
     explain: "ACU 내부 수장: 충격 센서, 롤오버 센서. 압력 센서는 ACU에 내장되지 않는다.",
   },
   {
-    no: 48, cat: "electric_sys", exam: "oct23b",
+    no: 48, cat: "body", exam: "oct23b",
     q: "[10월2차] 편의/안전 편의장치 입력 요소 중 '다기능 스위치, 파워윈도우 스위치' 등에서 보내는 작동신호를 진단장비로 점검 시, 데이터의 특징으로 맞는 것은?",
     opts: ["일반적으로 스위치 신호는 On/Off로 표시된다","스위치 Off시 항상 0V가 유지 되어, 강제구동이 불가능하다","고장 판단이 용이하여 모든 입력 스위치 고장 시 고장 코드가 발생한다","접점(스위치) 방식의 경우, 사용자의 조작 속도 차이로 인해 서비스 데이터를 확인 할 수 없다"],
     ans: 1, ansText: "일반적으로 스위치 신호는 On/Off로 표시된다",
     explain: "감지류 스위치의 PULL-UP저항, 자기진단 고장코드 없다.",
   },
   {
-    no: 49, cat: "electric_sys", exam: "oct23b",
+    no: 49, cat: "body", exam: "oct23b",
     q: "[10월2차] 편의/안전 빌트인캠 2를 통해 녹화된 영상에서 확인 할 수 있는 정보가 아닌 것은?",
     opts: ["차량의 속도","브레이크 스위치 위치","방향 지시등 동작 상태","주행 중 변속단 선택 상태"],
     ans: 4, ansText: "주행 중 변속단 선택 상태",
     explain: "주행정보 영상 같은 것이 제공된다.",
   },
   {
-    no: 50, cat: "electric_sys", exam: "oct23b",
+    no: 50, cat: "body", exam: "oct23b",
     q: "[10월2차] 편의/안전 에어백 시스템에 대한 설명이다. 틀린 것은?",
     opts: ["단락 바(Short Bar)는 점화 회로의 커넥터가 분리됐을 때 High/Low 두 단자를 단락 시켜 전기적인 안정을 가지는 역할을 한다","액티브 벤트(Active Vent)는 고속 충돌 시 신속한 가스 배출을 위한 홀이다","프리 텐셔너 점화 회로의 저항값은 약 10Ω이다","LRD 벤트(Low Risk Deployment)는 착좌 자세 불량 시에도 에어백 압력에 의한 상해를 저하하기 위한 기술이다"],
     ans: 3, ansText: "프리 텐셔너 점화 회로의 저항값은 약 10Ω이다",
@@ -1652,7 +1652,7 @@ const QUESTIONS = [
     explain: "서로 다른 전압값을 출력하여 일치성을 검사한다.",
   },
   {
-    no: 14, cat: "hydrogen", exam: "jul24",
+    no: 14, cat: "engine", exam: "jul24",
     q: "[24년7월] 다음은 요소수 부족 경고 단계에 대한 내용이다. 틀린 것은?",
     opts: ["1단계 - 요소수가 부족합니다.(약 2,400km 주행가능)","2단계 - 요소수를 보충하십시오.(약 1,200km 주행가능)","3단계 - 000km 후 재시동 불가 요소수를 보충하십시오.(약 800km 주행가능)","4단계 - 요소수가 고갈되어 즉시 시동을 OFF 합니다.(재 시동불가)"],
     ans: 4, ansText: "4단계 - 요소수가 고갈되어 즉시 시동을 OFF 합니다.(재 시동불가)",
@@ -1698,14 +1698,14 @@ const QUESTIONS = [
 
   // ─── 바디/ADAS (24년 7월) ───
   {
-    no: 20, cat: "body", exam: "jul24",
+    no: 20, cat: "mission", exam: "jul24",
     q: "[24년7월] ESC 기능 중 '승차인원이나 적재하중에 맞추어 앞뒤 바퀴에 적절한 제동력을 자동으로 분배함으로써 안정된 브레이크 성능을 발휘할 수 있게 하는 전자식 제동력 분배 시스템'으로 맞는 것은?",
     opts: ["EBD(Electronic Brake force Distribution)","ABS(Anti-lock Brake System)","TCS(Traction Control System)","ESS(Emergency Stop Signal)"],
     ans: 1, ansText: "EBD(Electronic Brake force Distribution)",
     explain: "ESS는 급제동 경고 시스템, ABS 안티록 브레이크 시스템, TCS는 구동력 제어 시스템, EBD는 전자식 제동력 분배 시스템.",
   },
   {
-    no: 21, cat: "body", exam: "jul24",
+    no: 21, cat: "mission", exam: "jul24",
     q: "[24년7월] 감쇠력 제어 ECS의 구성품으로 틀린 것은?",
     opts: ["연속가변댐퍼(CDC)","바디 G-센서","휠 G-센서","차고 센서"],
     ans: 4, ansText: "차고 센서",
@@ -1754,7 +1754,7 @@ const QUESTIONS = [
     explain: "차속조건은 RSPA 해지조건에 포함되지 않는다.(탐차조건: 20km/h)",
   },
   {
-    no: 28, cat: "body", exam: "jul24",
+    no: 28, cat: "mission", exam: "jul24",
     q: "[24년7월] 다음은 타이어에 의한 소음 진동 문제 현상에 대한 설명이다. 틀린 것은?",
     opts: ["전륜 타이어 발란싱에 문제가 있을 경우 스티어링휠 쉬미 현상이 발생할 수 있다","타이어 RFV(Radial Force Variation)가 과도하여 연발란스에 의한 진동 문제가 발생할 수 있다","쏨미 타이어는 교부 경도가 낮기 때문에 노면 진동을 잘 흡수어 사계절 로드노이즈 성능이 우수하다","TMK(Tire Mobility Kit) 실란트액이 타이어 내부에 남아 있으면, 언발란스에 의한 진동 문제가 발생할 수 있다"],
     ans: 3, ansText: "쏨미 타이어는 교부 경도가 낮기 때문에 노면 진동을 잘 흡수어 사계절 로드노이즈 성능이 우수하다",
@@ -1768,7 +1768,7 @@ const QUESTIONS = [
     explain: "4행정 8기통 엔진의 연진 폭발에 의한 주 가진력 차수는 4차이다. (8통 폭발 / 크랭크2회전 = 4번 폭발 / 크랭크1회전)",
   },
   {
-    no: 30, cat: "body", exam: "jul24",
+    no: 30, cat: "electrical", exam: "jul24",
     q: "[24년7월] 다음은 노이즈음지비와 노이즈스코프 측정 신호의 필터링에 대한 설명이다. 틀린 것은?",
     opts: ["로우패스 필터(Low-Pass Filter): 특정 주파수 이하의 영역만 필터링하여 남겨 놓는다","하이패스 필터(High-Pass Filter): 특정 주파수 이상의 영역만 필터링하여 남겨 놓는다","밴드스톱 필터(Band-Stop Filter): 특정 주파수 밴드 까지만 PC 스피커로 소음을 재생한 후 멈춘다","밴드패스 필터(Band-Pass Filter): 입력한 주파수 최소~최대 밴드 영역만 필터링하여 남겨 놓는다"],
     ans: 3, ansText: "밴드스톱 필터(Band-Stop Filter): 특정 주파수 밴드 까지만 PC 스피커로 소음을 재생한 후 멈춘다",
@@ -1849,56 +1849,56 @@ const QUESTIONS = [
     explain: "1) High Speed CAN 및 CAN FD  2) K-Line  3) 의미없는 전압레벨  4) FTLS CAN",
   },
   {
-    no: 41, cat: "comm", exam: "jul24",
+    no: 41, cat: "body", exam: "jul24",
     q: "[24년7월] ISG적용 차량에 있는 저전압 DC-DC컨버터에 대한 설명으로 틀린 것은?",
     opts: ["주행 시에는 실내 정션박스에서 입력되는 상시 전원 및 ACC전원을 해당 모듈로 바이패스 시킨다","AVN이 들 음선이 구성되면, 각각 헤드유닛/외장 파워앰프/모니터로 입력되는 3개의 DC-DC컨버터가 적용된다","컨버팅 전원 입력 시에는 상시전원이 12V이하로 떨어지면 즉시 바이패스 회로를 차단한다","ISG(크랭킹) 동작 감지 시에는 시동 릴레이 접지 라인을 감지하여 ISG 재 시동 유무를 판단한다"],
     ans: 2, ansText: "AVN이 들 음선이 구성되면, 각각 헤드유닛/외장 파워앰프/모니터로 입력되는 3개의 DC-DC컨버터가 적용된다",
     explain: "AVN 풀 옵션의 경우 헤드유닛, 외장 파워앰프로 2개 또는 1개의 DC-DC컨버터가 적용된다.",
   },
   {
-    no: 42, cat: "comm", exam: "jul24",
+    no: 42, cat: "body", exam: "jul24",
     q: "[24년7월] 저전압 DC-DC 컨버터 불량 시 나타날 수 있는 현상에 대한 설명으로 틀린 것은?",
     opts: ["컨버터 내에는 과전류 보호 장치가 없으므로 과전류 의심시 실내정션 블록 퓨즈만 확인하면 된다","컨버터의 커넥터가 탈거 되었다면 전원 공급이 여려워 시스템 구동이 되지 않는다","컨버터 내부 볼랜드 바이패스 회로가 콘댄서 회로로 바뀌게 될 경우 재 시동시 AVN시스템이 재시작 될 수 있다","시동 신호선이 단선된 경우에도 ADM기능은 사용 할 수 있다"],
     ans: 4, ansText: "시동 신호선이 단선된 경우에도 ADM기능은 사용 할 수 있다",
     explain: "DC-DC컨버터 내부에 IPS등 과전류 보호장치가 있다.",
   },
   {
-    no: 43, cat: "comm", exam: "jul24",
+    no: 43, cat: "body", exam: "jul24",
     q: "[24년7월] 다음 중 무선통신(LTE) 상태를 점검하는 방법으로 틀린 것은?",
     opts: ["안테나로 공급되는 전압의 크기를 측정하여 전계 상태를 판단한다","AVN 모니터에 표시되는 안테나 감도를 확인 하여 점검이 가능하다","목적지 설정 후 블루링크 연동 확인하여 점검이 가능하다","도난신호발생을 작동시켜 점검이 가능하다"],
     ans: 1, ansText: "안테나로 공급되는 전압의 크기를 측정하여 전계 상태를 판단한다",
     explain: "안테나 전압을 측정하여 무선통신을 점검할 수 없다.",
   },
   {
-    no: 44, cat: "comm", exam: "jul24",
+    no: 44, cat: "body", exam: "jul24",
     q: "[24년7월] ccIC 교환 후 조치사항에 대한 설명으로 틀린 것은?",
     opts: ["ccIC 베리언트 코딩","ccIC-FPM 학습","클러스터 모니터 설정을 위한 수동 소프트웨어 업데이트","HUD 영점설정"],
     ans: 3, ansText: "클러스터 모니터 설정을 위한 수동 소프트웨어 업데이트",
     explain: "클러스터 모니터 설정 시 소프트웨어 버전 소등 업데이트가 되어 수동 업데이트가 불필요하다.",
   },
   {
-    no: 45, cat: "comm", exam: "jul24",
+    no: 45, cat: "body", exam: "jul24",
     q: "[24년7월] AVN 시스템에 오류 발생 시(예. 화면 변화 없음) 리셋(Reset) 버튼을 눌러 시스템을 재시작하였다. 이때 헤드유닛에 저장된 사용자 설정 변화로 맞는 것은?",
     opts: ["라디오 채널 저장 항목이 초기화 된다","전화 수발신 항목과 같은 개인 정보가 초기화된다","사용자 프로필이 초기화된다","설정 변화 없이 AVN 시스템만 재시작 된다"],
     ans: 4, ansText: "설정 변화 없이 AVN 시스템만 재시작 된다",
     explain: "초기화 버튼은 단순히 시스템을 재시작하기 위해 적용된다.",
   },
   {
-    no: 46, cat: "electric_sys", exam: "jul24",
+    no: 46, cat: "body", exam: "jul24",
     q: "[24년7월] 디지털 키 2가 적용된 차량에 관한 설명으로 틀린 것은?",
     opts: ["NFC 기능만으로도 출입 및 시동이 가능하다","스마트를 활용한 Passive 출입 및 시동이 가능하다","실내와 범퍼에 설치된 UWB는 모두 BLE 기능을 포함하고 있다","스마트키 지원 기기는 제조사와 기종에 따라 지원 가능 여부가 다르다"],
     ans: 3, ansText: "실내와 범퍼에 설치된 UWB는 모두 BLE 기능을 포함하고 있다",
     explain: "BLE와 UWB는 실내에서만 통합이 되어있다.",
   },
   {
-    no: 47, cat: "electric_sys", exam: "jul24",
+    no: 47, cat: "body", exam: "jul24",
     q: "[24년7월] 스마트키 시스템에서 아웃사이드 핸들의 록/언록 스위치를 눌러 도어를 인락 할 때 무선 인증 순서로 맞는 것은?",
     opts: ["①→⑤→③→⑥","②→④→③→⑥","⑥→④→③→⑥","⑤→③→⑤→⑥"],
     ans: 2, ansText: "②→④→③→⑥",
     explain: "도어핸들 →SMK(IBU)→스마트키 →BCM → SJB",
   },
   {
-    no: 48, cat: "electric_sys", exam: "jul24",
+    no: 48, cat: "body", exam: "jul24",
     q: "[24년7월] 스마트정션블록(SJB)의 역할에 대한 설명으로 틀린 것은?",
     opts: ["암전류를 자동 차단한다","빗물의 양에 따라 와이퍼 제어를 수행한다","단선·단락 검출을 통한 진단기능을 제공한다","반도체 소자(IPS)를 이용하여 각종 램프를 제어한다"],
     ans: 2, ansText: "빗물의 양에 따라 와이퍼 제어를 수행한다",
@@ -1912,7 +1912,7 @@ const QUESTIONS = [
     explain: "IGPM은 D CAN을 통해 진단장비와 통신한다.",
   },
   {
-    no: 50, cat: "electric_sys", exam: "jul24",
+    no: 50, cat: "body", exam: "jul24",
     q: "[24년7월] 도어 록/언록 제어에서 충돌감지 인락 제어에 대한 설명으로 틀린 것은?",
     opts: ["ICU에서 풀업 전원을 인가하여 감지한다","충돌 신호 입력 시에도 센트럴 도어 록/언록 제어는 가능하다","ICU는 듀티값의 변화로 충돌상태를 판단한다","에어백이 전개되면 자동으로 모든 도어를 언록 하여 탈출을 용이하게 한다"],
     ans: 2, ansText: "충돌 신호 입력 시에도 센트럴 도어 록/언록 제어는 가능하다",
@@ -1997,14 +1997,14 @@ const QUESTIONS = [
     explain: "프라이머리 스피드 센서는 프라이머리(구동) 풀리의 회전속도를 검출한다.",
   },
   {
-    no: 20, cat: "body", exam: "jun25",
+    no: 20, cat: "mission", exam: "jun25",
     q: "[25년6월] 전자제어 서스펜션(ECS)의 기본 원리 - 주행 상황에 따라 달라지는 ECS의 차체 제어 로직에 대한 측정항목과 입력센서로 틀린 것은?",
     opts: ["바운스(Bounce) 제어는 차체 상하 가속도의 움직임을 감지하기 위해 차속 센서, 가속도 센서를 입력 받는다","스쿼트(Squat) 제어는 차속에 따른 스핀을 감지하기 위해 차속 센서와 조향각 센서, 가속도 센서를 입력 받는다","다이브(Dive) 제어는 차속에 따른 차량의 제동 상태를 감지하기 위해 차속 센서, 브레이크 스위치를 입력 받는다","롤(Roll) 제어는 차속에 따른 차량의 선회량을 감지하기 위해 차속 센서, 조향각 센서를 입력 받는다"],
     ans: 1, ansText: "바운스(Bounce) 제어는 차체 상하 가속도의 움직임을 감지하기 위해 차속 센서, 가속도 센서를 입력 받는다",
     explain: "바운스 제어의 주 입력 센서는 차체 가속도(G) 센서이다.",
   },
   {
-    no: 21, cat: "body", exam: "jun25",
+    no: 21, cat: "mission", exam: "jun25",
     q: "[25년6월] 차체 자세 제어시스템에서 차량의 수직축에 대한 회전각을 측정하는 센서로 맞는 것은?",
     opts: ["휠 가속도 센서","롤 오버 센서","조향각 센서","요 레이트 센서"],
     ans: 4, ansText: "요 레이트 센서",
@@ -2027,28 +2027,28 @@ const QUESTIONS = [
 
   // ─── 통신 (25년 6월) ───
   {
-    no: 32, cat: "comm", exam: "jun25",
+    no: 32, cat: "body", exam: "jun25",
     q: "[25년6월] 후방카메라 SVM 영상이 나타나지 않을 경우에 대한 설명으로 맞는 것은?",
     opts: ["전방 카메라 CAN버스를 통해 SVM 데이터 확인","SVM 유닛에서 AVN까지의 LVDS 라인 및 전원 라인을 점검한다","SVM-기주 관련 라인을 확인한다","AR HUD 카메라 SVM 전원 공급 확인"],
     ans: 2, ansText: "SVM 유닛에서 AVN까지의 LVDS 라인 및 전원 라인을 점검한다",
     explain: "후방카메라 영상 불량 시 SVM~AVN 간 LVDS 및 전원 라인 점검이 우선이다.",
   },
   {
-    no: 33, cat: "comm", exam: "jun25",
+    no: 33, cat: "body", exam: "jun25",
     q: "[25년6월] 블루투스 음악을 수신하는 중 경고음 사운드가 출력이 안된다. 이에 대한 설명으로 맞는 것은?",
     opts: ["앰프 에서 CAN버스를 통해 수신한다는 것을 확인한다","진단장비로 DMB, 블루링크(GCS)의 고장 코드를 확인한다","앰프에서 수신하며 정상적으로 12V이고 ACC 전원이 공급된다","ISG로 인한 전압 저하 시에는 DC-DC컨버터가 적용된다"],
     ans: 3, ansText: "앰프에서 수신하며 정상적으로 12V이고 ACC 전원이 공급된다",
     explain: "외장 앰프 적용 시 경고음 출력에는 12V와 ACC 전원이 필요하며 이를 확인한다.",
   },
   {
-    no: 34, cat: "comm", exam: "jun25",
+    no: 34, cat: "body", exam: "jun25",
     q: "[25년6월] ISG 기능에 관한 차량에서 재시동 후 DC-DC컨버터의 작동에 대한 설명으로 맞는 것은?",
     opts: ["앰프에서 CAN버스를 통해 확인한다","DMB, 블루링크 고장 코드 확인","ISG 기능 차량에서 재시동 후 DC-DC컨버터가 작동되며 ACC 전원을 공급한다","ISG 크랭킹 시 DC-DC컨버터는 충전 전원에서 ACC 전원을 공급한다"],
     ans: 3, ansText: "ISG 기능 차량에서 재시동 후 DC-DC컨버터가 작동되며 ACC 전원을 공급한다",
     explain: "ISG 재시동 시 전압 저하를 방지하기 위해 DC-DC컨버터가 ACC 전원을 공급한다.",
   },
   {
-    no: 35, cat: "comm", exam: "jun25",
+    no: 35, cat: "body", exam: "jun25",
     q: "[25년6월] 차량 모니터 영상이 표시되지 않을 경우에 대한 점검 방법으로 맞는 것은?",
     opts: ["전방 카메라 CAN버스 확인","SVM 유닛에서 AVN까지의 LVDS 및 전원 라인을 점검한다","SVM 관련 라인을 확인한다","AR HUD 카메라 전원 공급 확인"],
     ans: 2, ansText: "SVM 유닛에서 AVN까지의 LVDS 및 전원 라인을 점검한다",
@@ -2071,7 +2071,7 @@ const QUESTIONS = [
     explain: "직렬 커패시터 합성: 1/C = 1/10 + 1/20 + 1/30 = 6/60+3/60+2/60 = 11/60, C ≈ 5.45μF ≈ 가장 가까운 값은 7.5μF.",
   },
   {
-    no: 46, cat: "electrical", exam: "jun25",
+    no: 46, cat: "comm", exam: "jun25",
     q: "[25년6월] HS CAN 차량에서 B-CAN 파형의 H 라인 이상 시 고장 원인으로 맞는 것은?",
     opts: ["주선 High 단선","Low High 단선","주선 Low High 단선","주선 Low 단선"],
     ans: 4, ansText: "주선 Low 단선",
